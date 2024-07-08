@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vipul Anand - Business Card with Corner Color Shifts</title>
+  <title>Vipul Anand - Business Card with Video Background</title>
   <style>
     @font-face {
       font-family: "Mona Sans";
@@ -28,13 +28,37 @@
 
     body {
       background-color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: "Mona Sans", sans-serif;
-      height: 100vh;
       margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    body video {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -2;
     }
 
     .card-container {
@@ -129,7 +153,7 @@
 
     .logo {
       width: 60px;
-      height: 60px;  
+      height: 60px;
       margin-bottom: 15px;
       background-image: url('https://github.com/anandvip/vipulAnand/blob/main/Sqr-va-logo.png?raw=true');
       background-size: contain;
@@ -156,6 +180,9 @@
   </style>
 </head>
 <body>
+  <video autoplay loop muted>
+    <source src="intro/valogo.mp4" type="video/mp4">
+  </video>
   <div class="card-container">
     <div class="edge-highlight"></div>
     <div class="traveling-highlight"></div>
